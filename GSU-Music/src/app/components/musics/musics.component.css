@@ -1,0 +1,8 @@
+div{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+h1{
+    text-align: center;
+}
