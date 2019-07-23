@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ArtisteService } from '../../services/artiste.service';
+import {Artiste } from '../../models/Artiste';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-artiste',
@@ -6,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./artiste.component.css']
 })
 export class ArtisteComponent implements OnInit {
-
-  constructor() { }
+  artistes:Artiste[];
+  constructor(private artisteService:ArtisteService) { }
 
   ngOnInit() {
+    this.artistes = this.artisteService.getArtiste();
   }
 
 }

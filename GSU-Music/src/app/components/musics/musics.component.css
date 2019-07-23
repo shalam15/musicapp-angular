@@ -2,7 +2,15 @@ div{
     display: flex;
     flex-wrap: wrap;
     padding: 20px;
+    background-color: white;
 }
 h1{
     text-align: center;
+}
+
+hr{
+    border: none;
+    height: 1px;
+    color: black;
+    background-color:black;
 }

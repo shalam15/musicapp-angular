@@ -5,5 +5,6 @@ export class Artiste{
     musicGenre :string;
     origin :string;
     originFlag :string;
+    avatarImage : string;
     
 }
