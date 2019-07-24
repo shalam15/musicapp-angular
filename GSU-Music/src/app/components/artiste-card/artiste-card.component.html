@@ -1,7 +1,9 @@
 <div class="main">
-    <img  class='image' src="{{artiste.avatarImage}}" alt="Artiste Avartar">
+    <a (click)="gotoArtiste(artiste.id)"><img  class='image' src="{{artiste.avatarImage}}" alt="Artiste Avartar"></a>
     <div class="details">
             <p class='title'>{{ artiste.firstName }}</p>
     </div>
             
-</div>
+</div> 
+
+

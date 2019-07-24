@@ -14,6 +14,12 @@ export class ArtisteComponent implements OnInit {
 
   ngOnInit() {
     this.artistes = this.artisteService.getArtiste();
+
+    const artisteObservable = this.artisteService.getArtiste();
+    artisteObservable.subscribe((artisteData: Artiste[]) =>{
+      this.artistes = artisteData;
+      console.log(this.artistes.length);
+    });
   }
 
 }

@@ -1,4 +1,5 @@
 export class Artiste{
+    id:Number;
     firstName:string;
     lastName:string;
     worldRank :string;

@@ -9,10 +9,10 @@
             <div class='title'>{{ music.title }}</div>
             <div class='artist'>{{ music.author }}</div>
             <div><span> <I style="color: blue">lyrics</I> </span> "{{ music.lyrics.slice(0,25) }} ..."</div>
-            <a href="/" class="music-details"> <p>Details<span> ></span></p></a>
+            <a (click)="gotoMusic(music.id)" class="music-details"> <p>Details<span> ></span></p></a>
             <audio src="../../../assets/musics.mp3" controls>
                 <source src="../../../assets/musics.mp3" type="audio/mpeg" >
-              Your browser does not support the audio element.
+              Your browser does not support the audio element. 
               </audio>
            
         </div>

@@ -1,1 +1,32 @@
-<p>music-details works!</p>
+<section *ngIf="music">
+    <div class='music-card'>
+        
+        <img [src]="music.image"/>
+        <div class='info'>
+            <div class='title'>{{ music.title }}</div>
+            <div class='artist'>{{ music.author }}</div>
+        </div>
+    </div>
+
+    <div><span> <I style="color: blue">lyrics</I> </span> "{{ music.lyrics }}"</div>
+    <div class="button-div">
+            <button (click)="goBack()" class="button">GO BACK</button>
+    </div>
+    
+</section>
+
+
+<section *ngIf="!music">
+    <div class='music-card'>
+        
+        <div class='info'>
+            NO MUSIC FOUND
+        </div>
+    </div>
+    <div class="button-div">
+            <button (click)="goBack()" class="button">GO BACK</button>
+    </div>
+    
+</section>
+
+

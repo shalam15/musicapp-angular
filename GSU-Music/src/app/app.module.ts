@@ -1,6 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule , } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { Routes, Router, RouterModule, ROUTES } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MusicsComponent } from './components/musics/musics.component';
@@ -15,6 +16,14 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
+
+const routes: Routes = [
+
+  {path: '#', component: HomepageComponent},
+  
+]
+
 
 @NgModule({
   declarations: [
@@ -30,13 +39,17 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     LoginComponent,
     SignupComponent,
     ResetpasswordComponent,
-    HomepageComponent
+    HomepageComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

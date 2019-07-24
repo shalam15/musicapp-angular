@@ -1,1 +1,30 @@
-<p>artiste-details works!</p>
+<section *ngIf="artiste">
+    <div class='music-card'>
+        
+        <img [src]="artiste.avatarImage"/>
+        <div class='info'>
+            <div class='title'>{{ artiste.firstName }}</div>
+            <div class='artist'>{{ artiste.worldRank }}</div>
+        </div>
+    </div>
+    <div class="button-div">
+            <button (click)="goBack()" class="button">GO BACK</button>
+    </div>
+    
+</section>
+
+
+<section *ngIf="!artiste">
+    <div class='music-card'>
+        
+        <div class='info'>
+            NO ARTISTE FOUND
+        </div>
+    </div>
+    <div class="button-div">
+            <button (click)="goBack()" class="button">GO BACK</button>
+    </div>
+    
+</section>
+
+
