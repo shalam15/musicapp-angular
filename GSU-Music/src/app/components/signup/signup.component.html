@@ -1,1 +1,16 @@
-<p>signup works!</p>
+<div class="userField" style="text-align: center">
+
+    <h2>Sign-up</h2>
+
+    <div class="inputs">
+        <input [(ngModel)]="input.username" placeholder="Username"><br>
+        <input [(ngModel)]="input.password" type="password" placeholder="Password"><br>
+        <input [(ngModel)]="input.email" placeholder="E-mail"><br>
+    </div>
+
+    <div class="buttons">
+        <button (click)="registerUser()" style="margin-right: 15px">Sign-up</button> 
+        <button (click)='toLogin()'>Login</button>
+    </div>
+
+</div>

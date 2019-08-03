@@ -17,10 +17,11 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
 
-  {path: '#', component: HomepageComponent},
+  // {path: '#', component: HomepageComponent},
   
 ]
 
@@ -47,6 +48,7 @@ const routes: Routes = [
     HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

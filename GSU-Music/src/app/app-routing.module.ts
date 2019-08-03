@@ -6,15 +6,20 @@ import { ArtisteDetailsComponent } from './components/artiste-details/artiste-de
 import { MusicsComponent } from './components/musics/musics.component'
 import { ArtisteComponent } from './components/artiste/artiste.component'
 import { NotfoundComponent } from './components/notfound/notfound.component'
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 
 const routes: Routes = [
-  {path: '', component: HomepageComponent},
+  { path: '', component: SignupComponent },
+  { path: 'login', component: LoginComponent },
+  {path: 'home', component: HomepageComponent},
   {path: 'all-artiste', component: ArtisteComponent},
   {path: 'artiste/:id', component: ArtisteDetailsComponent},
   {path: 'all-music', component: MusicsComponent},
   {path: 'music/:id', component: MusicDetailsComponent},
-  {path: '**', component: NotfoundComponent}
+  // {path: '**', component: NotfoundComponent},
+  
 
 
 
