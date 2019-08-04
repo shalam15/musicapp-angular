@@ -1,0 +1,121 @@
+<div class="container">
+
+    <!-- the main form -->
+    <div [hidden]="submitted">
+        <h1>Add Music</h1>
+        <form (ngSubmit)="onSubmit()" #musicForm="ngForm">
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input type="text" class="form-control" id="author" name="author" required [(ngModel)]="model.author"
+                    #spy>
+                VALUE: {{model.author}}
+
+                <br>TODO: remove this: {{spy.className}}
+
+            </div>
+
+            <div class="form-group">
+                <label for="alterEgo">Tittle</label>
+                <input type="text" class="form-control" id="tittle" name="tittle" required [(ngModel)]="model.title">
+                VALUE: {{model.title}}
+
+            </div>
+            <hr>
+            <div class="form-check">
+                <label class="form-check-label" for="IsExplicit">IsExplicit</label>{{" "}}
+                <input type="checkbox" class="form-check-input" id="IsExplicit" name="IsExplicit"
+                    [(ngModel)]="model.isExplicit">
+                <br>
+                VALUE: {{model.isExplicit}}
+            </div>
+            <hr>
+
+            <div class="form-group">
+                <label for="genre">MusicGenrer</label>
+                <select class="form-control" id="genre" required [(ngModel)]="model.genre" name="genre">
+
+                    <option *ngFor="let gen of genre" [value]="gen">{{gen}}</option>
+                </select>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label for="musicLabel">Paste Music Image URL</label>
+                <input type="file" id="musicLabel" name="musicLabel" [(ngModel)]="model.image">
+
+
+            </div>
+            <hr>
+
+            <div class="form-group">
+                <label for="lyrics">Lyrics</label>
+                <textarea class="form-control" id="lyrics" name="lyrics" rows="4" required
+                    [(ngModel)]="model.lyrics"></textarea>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label for="musicFile"><b>Paste Music File URL</b> </label>
+                <input type="file" id="musicFile" name="musicFile" [(ngModel)]="model.musicFile">
+            </div>
+            <hr>
+            <div class="form-group">
+                <label for="musicFile">DateCreated:</label>
+                <br>
+                Date Time<input type="datetime" name="date" size=57 id="date" required [(ngModel)]="model.dateCreated">
+
+                <button type="button" class="btn btn-success" (click)=generateDateAndTime()>NOW</button>
+            </div>
+
+            <div class="btn-toolbar">
+                <button type="submit" class="btn btn-success" [disabled]="!musicForm.form.valid">Add</button>
+                <button type="button" class="btn btn-success" (click)="clearMusic(); musicForm.reset()">Clear
+                    Input</button>
+                <button type="button" class="btn btn-success" (click)="goBack()">Go Home</button>
+            </div>
+
+            <div>
+                <hr>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- only show when the form is submitted -->
+    <div [hidden]="!submitted">
+        <h2>Review Music Upload:</h2>
+        <div class="row">
+            <div class="col-xs-3">Author</div>
+            <div class="col-xs-9">{{ model.author }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Tittle</div>
+            <div class="col-xs-9">{{ model.title }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Music Genre</div>
+            <div class="col-xs-9">{{ model.genre }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">is it Explicit? </div>
+            <div class="col-xs-9">{{ model.isExplicit }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Music Link </div>
+            <div class="col-xs-9">{{ model.musicFile }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">Date Creted? </div>
+            <div class="col-xs-9">{{ model.dateCreated }}</div>
+        </div>
+        <br>
+        <hr>
+        <div class="btn-toolbar">
+            <button class="btn btn-primary" (click)="submitted=false; errorMessage=null">Edit</button>
+            <button class="btn btn-primary" (click)="onSubmitFinal()">Send to Server</button>
+            <div>
+                    <h1>{{errorMessage}}</h1>
+            </div>
+            
+        </div>
+        <hr>
+    </div>
+</div>

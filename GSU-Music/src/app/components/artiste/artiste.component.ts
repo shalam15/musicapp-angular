@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ArtisteService } from '../../services/artiste.service';
-import {Artiste } from '../../models/Artiste';
-import { from } from 'rxjs';
+import { ArtisteService } from '../../services/artiste.service';
+import { Artiste } from '../../models/Artiste';
 
 @Component({
   selector: 'app-artiste',
@@ -9,14 +8,15 @@ import { from } from 'rxjs';
   styleUrls: ['./artiste.component.css']
 })
 export class ArtisteComponent implements OnInit {
-  artistes:Artiste[];
-  constructor(private artisteService:ArtisteService) { }
+  artistes: Artiste[];
+  constructor(private artisteService: ArtisteService) { }
 
   ngOnInit() {
-    this.artistes = this.artisteService.getArtiste();
+
+    // this.artistes = this.artisteService.getArtiste();
 
     const artisteObservable = this.artisteService.getArtiste();
-    artisteObservable.subscribe((artisteData: Artiste[]) =>{
+    artisteObservable.subscribe((artisteData: Artiste[]) => {
       this.artistes = artisteData;
       console.log(this.artistes.length);
     });

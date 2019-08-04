@@ -1,9 +1,10 @@
-
-  <div>
+<div>
   <ul>
-    <li><a  href="#home">Home</a></li>
-    <li><a href="http://127.0.0.1:8000/musicapi/music/add/" class="active">ADD NEW MUSIC</a></li>
-    <li class="imagelist" style="float:right !important"><img src="../../../../assets/cardi.jpg" alt="profile"></li> 
-    <li style="float:right !important"><a href="#" >Login/ SignUp/ Profile</a></li>
+    <li><a (click)=goHome()>Home</a></li>
+    <li><a (click)=createNewMusic() class="active">ADD NEW MUSIC</a></li>
+    <li *ngIf=loginState class="imagelist" style="float:right !important"><img src={{currentUserImage}}
+        alt="profile"></li>
+    <li *ngIf=loginState style="float:right !important"><a (click)=directToLogOut()>LogOut</a></li>
+    <li *ngIf=!loginState style="float:right !important"><a (click)=directToLogin()>Login</a></li>
   </ul>
 </div>

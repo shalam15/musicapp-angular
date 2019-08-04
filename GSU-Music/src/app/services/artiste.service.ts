@@ -1,70 +1,30 @@
 import { Injectable } from '@angular/core';
-import { Artiste } from '../models/Artiste';
 import { Observable } from 'rxjs';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http'; 
+import { Artiste } from '../models/Artiste';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArtisteService {
+  artisteUrl:string = 'http://127.0.0.1:8000/artisteartiste/?format=json';
+  artisteDetailsUrl:string;
 
-  constructor() { }
-  artiste: Artiste[] = [
-    {
-      id:1,
-      firstName:"Cardi",
-      lastName:"B",
-      worldRank :"2",
-      musicGenre :"hiphop",
-      origin :"canada",
-      originFlag :"blue",
-      avatarImage : "../../../assets/cardi.jpg"
+  constructor(private http:HttpClient) { }
 
-    },
-    {
-      id:2,
-      firstName:"Drake",
-      lastName:"Ola",
-      worldRank :"2",
-      musicGenre :"hiphop",
-      origin :"canada",
-      originFlag :"blue",
-      avatarImage : "../../../assets/drake.jpg"
-    },
-    {
-      id:3,
-      firstName:"Drake",
-      lastName:"Ola",
-      worldRank :"2",
-      musicGenre :"hiphop",
-      origin :"canada",
-      originFlag :"blue",
-      avatarImage : "../../../assets/drake.jpg"
-    },
-    {
-      id:4,
-      firstName:"Drake",
-      lastName:"Ola",
-      worldRank :"2",
-      musicGenre :"hiphop",
-      origin :"canada",
-      originFlag :"blue",
-      avatarImage : "../../../assets/cardi.jpg"
-    }
-  ]
-
-  getArtiste(): any{
-    const usersObservable = new Observable(observer =>{
-      setTimeout(() =>{
-        observer.next(this.artiste);
-      }, 10);
-    });
-    return usersObservable;
+  getArtiste():Observable<Artiste[]>{
+    console.log(this.http.get<Artiste[]>(this.artisteUrl.toString()))
+    return this.http.get<Artiste[]>(this.artisteUrl)
   }
-  getArtist(id) : Artiste{
-    var artiste = this.artiste.find(t => t.id == parseInt(id))
-    console.log(artiste);
-    return artiste;
+ 
+  setArtiste(id){
+    this.artisteDetailsUrl ='http://localhost:8000/artisteartiste/'+id+'/?format=json'
+   }
+  getArtist(id) : Observable<Artiste>{
+    this.setArtiste(id)
+    console.log(this.http.get<Artiste>(this.artisteDetailsUrl));
+    return this.http.get<Artiste>(this.artisteDetailsUrl);
   }
 
 }

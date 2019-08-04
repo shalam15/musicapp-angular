@@ -1,1 +1,34 @@
-<p>signup works!</p>
+<div class="container">
+
+        <!-- the main form -->
+        <div>
+            <h1>Sign Up</h1>
+            <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+                <div class="form-group">
+                    <label for="Username">Username</label>
+                    <input type="text" class="form-control" id="author" name="author" required [(ngModel)]="model.username">
+                </div>
+    
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    <input type="password" class="form-control" id="Password" name="tittle" required [(ngModel)]="model.password">
+    
+                </div>
+                <div class="form-group">
+                        <label for="repeatPassword">Repeat Password</label>
+                        <input type="password" class="form-control" id="repeatPassword" name="tittle" required [(ngModel)]="model.repeatPassword">
+        
+                    </div>
+                <hr>
+                <div class="btn-toolbar">
+                        <button class="btn btn-success" (click)=signUp()  [disabled]="!loginForm.form.valid">SIGNUP</button>
+                        <button class="btn btn-danger" (click)=directToLogin()>LOGIN</button>
+                </div>
+                <hr>
+                
+            </form>
+        </div>
+    
+    
+    </div>
+    

@@ -18,7 +18,7 @@ export class MusicDetailsComponent implements OnInit {
     
   }
   goBack(): void {
-    this.router.navigate(['/'])
+    this.router.navigate(['/homePage'])
 }
 
   ngOnInit() {

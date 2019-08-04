@@ -1,7 +1,8 @@
 div{
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     padding: 20px;
+    overflow: scroll;
     background-color: white;
 
 }

@@ -15,14 +15,17 @@ export class ArtisteDetailsComponent implements OnInit {
   id: String
 
   constructor(private route: ActivatedRoute,private artisteService: ArtisteService, private router: Router) { 
-    this.id = route.snapshot.paramMap.get("id"),
-    this.artiste = this.artisteService.getArtist(this.id)
+    this.id = route.snapshot.paramMap.get("id")
   }
 
   ngOnInit() {
+    const artisteObservable = this.artisteService.getArtist(this.id);
+    artisteObservable.subscribe((artisteDataDetails: Artiste)=>{
+      this.artiste = artisteDataDetails;
+    })
   }
 
   goBack(): void {
-    this.router.navigate(['/'])
+    this.router.navigate(['/homePage'])
 }
 }

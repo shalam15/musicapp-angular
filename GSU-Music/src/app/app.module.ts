@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { Routes, Router, RouterModule, ROUTES } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule }   from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { MusicsComponent } from './components/musics/musics.component';
 import { MusicCardComponent } from './components/music-card/music-card.component';
@@ -17,6 +19,13 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { LogoutComponent } from './components/logout/logout.component';
+import { CreateMusicComponent } from './components/create-music/create-music.component';
+
+
+
+
 
 const routes: Routes = [
 
@@ -40,13 +49,19 @@ const routes: Routes = [
     SignupComponent,
     ResetpasswordComponent,
     HomepageComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    LogoutComponent,
+    CreateMusicComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
+    AngularFontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
