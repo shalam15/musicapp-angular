@@ -2,3 +2,19 @@
 color: white;
 margin: auto, 50px;
 }
+.userField {
+    margin: 60px;
+}
+
+input {
+    margin: 5px;
+    padding: 5px;
+}
+
+button {
+    padding: 5px;
+}
+
+.buttons {
+    margin: 10px;
+}

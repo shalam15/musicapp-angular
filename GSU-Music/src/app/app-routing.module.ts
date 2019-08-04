@@ -12,11 +12,6 @@ import { NotfoundComponent } from './components/notfound/notfound.component'
 import { CreateMusicComponent } from './components/create-music/create-music.component'
 
 import { from } from 'rxjs';
-
-
-
-
-
 const routes: Routes = [
   
   {path: '', component: LoginComponent},
@@ -31,7 +26,8 @@ const routes: Routes = [
 
 
   {path: 'music/:id', component: MusicDetailsComponent},
-  {path: '**', component: NotfoundComponent}
+  // {path: '**', component: NotfoundComponent},
+  
 
 
 

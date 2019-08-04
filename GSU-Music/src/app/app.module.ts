@@ -23,13 +23,9 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { LogoutComponent } from './components/logout/logout.component';
 import { CreateMusicComponent } from './components/create-music/create-music.component';
 
-
-
-
-
 const routes: Routes = [
 
-  {path: '#', component: HomepageComponent},
+  // {path: '#', component: HomepageComponent},
   
 ]
 
@@ -61,7 +57,7 @@ const routes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(routes),
     AngularFontAwesomeModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
